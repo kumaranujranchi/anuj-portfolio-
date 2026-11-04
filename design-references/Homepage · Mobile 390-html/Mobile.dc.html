@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Performance Marketer Mobile</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./pf.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div class="pf {{themeClass}}" style="--pad:16px">
+
+<header style="position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--ln)">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:0 16px;min-height:64px">
+<a href="#top" style="display:flex;align-items:center;gap:10px;min-height:44px" aria-label="Anuj Kumar, home">
+<span class="disp" style="width:34px;height:34px;border-radius:9px;background:var(--acc);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:14px">AK</span>
+<span class="disp" style="font-weight:600;font-size:17px">Anuj Kumar</span></a>
+<button type="button" class="btn btn-s" style="width:44px;min-height:44px;padding:0" aria-label="Open menu"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"></path></svg></button>
+</div>
+</header>
+
+<!-- hero -->
+<section id="top" class="gridbg" style="position:relative;padding:40px 16px 32px">
+<div style="position:relative;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;align-items:center;gap:10px"><span class="pulse"></span><span class="eyebrow" style="font-size:11px">Performance Marketer · Paid Media</span></div>
+<h1 class="h1">I turn ad spend into <span class="acc">predictable revenue.</span></h1>
+<p class="lead">Performance marketer scaling brands profitably across Meta, Google, LinkedIn, TikTok &amp; Bing.</p>
+<div style="display:flex;flex-direction:column;gap:10px">
+<a class="btn btn-p" href="#contact">Book a Free Audit</a>
+<a class="btn btn-s" href="#work">See Case Studies</a>
+</div>
+</div>
+
+<div style="position:relative;margin-top:40px">
+<div class="glass" style="padding:14px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--sh)">
+<div style="display:flex;justify-content:space-between;align-items:center"><span class="mono mu" style="font-size:11px">LAST 90 DAYS</span><span class="badge badge-a">Sample data</span></div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+<sc-for list="{{kpis}}" as="k" hint-placeholder-count="4">
+<div style="background:var(--s1);border:1px solid var(--ln);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:4px">
+<div style="display:flex;justify-content:space-between"><span class="mono mu" style="font-size:11px">{{k.label}}</span><span class="mono acc" style="font-size:11px">{{k.delta}}</span></div>
+<div class="mono" style="font-size:22px;font-weight:700;letter-spacing:-.02em">{{k.value}}</div>
+<svg viewBox="0 0 120 28" width="100%" height="22" preserveAspectRatio="none" aria-hidden="true"><path class="draw" pathLength="1" d="{{k.spark}}" fill="none" stroke="var(--acc)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"></path></svg>
+</div>
+</sc-for>
+</div>
+<div style="background:var(--s1);border:1px solid var(--ln);border-radius:12px;padding:12px 12px 6px">
+<span style="font-weight:600;font-size:13px">Revenue vs. ad spend</span>
+<svg viewBox="0 0 520 190" width="100%" role="img" aria-label="Line chart: revenue rising above ad spend">
+<g stroke="var(--ln)"><path d="M0 30H520M0 80H520M0 130H520M0 180H520"></path></g>
+<path class="fadein" d="{{heroArea}}" fill="var(--acc)" opacity=".13"></path>
+<path d="{{heroSpend}}" fill="none" stroke="var(--mu)" stroke-width="3" stroke-dasharray="4 6" stroke-linecap="round"></path>
+<path class="draw" pathLength="1" d="{{heroLine}}" fill="none" stroke="var(--acc)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+<div class="portrait" style="position:absolute;right:12px;top:-24px;left:auto!important;bottom:auto!important;width:84px!important;height:104px!important;border-radius:16px;border:1px solid var(--ln);background:linear-gradient(160deg,var(--s2),var(--s1));overflow:hidden;box-shadow:var(--sh)">
+<svg viewBox="0 0 84 104" width="100%" height="100%" role="img" aria-label="Portrait placeholder"><circle cx="42" cy="42" r="16" fill="var(--ln)"></circle><path d="M12 104c0-22 13-34 30-34s30 12 30 34z" fill="var(--ln)"></path></svg>
+</div>
+</div>
+
+<div style="margin-top:36px;display:flex;flex-direction:column;gap:14px">
+<span class="eyebrow" style="color:var(--mu);text-align:center;font-size:11px">Trusted by</span>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px">
+<sc-for list="{{clients}}" as="c" hint-placeholder-count="6"><div class="mono" style="height:48px;border:1px dashed var(--ln);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--mu)">{{c}}</div></sc-for>
+</div>
+</div>
+</section>
+
+<div style="border-block:1px solid var(--ln);background:var(--s1);padding:16px 0">
+<div class="mqw"><div class="mq" style="gap:36px">
+<sc-for list="{{marquee}}" as="m" hint-placeholder-count="20"><span class="disp" style="font-size:17px;font-weight:600;color:var(--mu);white-space:nowrap;display:flex;align-items:center;gap:10px"><span class="tile" style="width:28px;height:28px;font-size:10px">{{m.g}}</span>{{m.n}}</span></sc-for>
+</div></div>
+</div>
+
+<!-- stats 2x2 -->
+<section id="results" style="padding:48px 16px 0">
+<div class="card" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));overflow:hidden">
+<sc-for list="{{stats}}" as="s" hint-placeholder-count="4">
+<div style="padding:22px 16px;display:flex;flex-direction:column;gap:6px;border:0 solid var(--ln);border-right-width:1px;border-bottom-width:1px">
+<span class="mono acc" style="font-size:26px;font-weight:700;letter-spacing:-.03em;line-height:1">{{s.v}}</span>
+<span class="mu" style="font-size:13px">{{s.l}}</span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<!-- platforms swipe -->
+<section id="platforms" style="padding:64px 0 0">
+<div style="padding:0 16px;display:flex;flex-direction:column;gap:12px;margin-bottom:24px">
+<span class="eyebrow">Platforms</span>
+<h2 class="h2">Platforms I master</h2>
+<span class="mono mu" style="font-size:12px">Swipe →</span>
+</div>
+<div class="snap" style="padding:0 16px 8px">
+<sc-for list="{{platforms}}" as="p" hint-placeholder-count="10">
+<article class="card" style="width:232px;padding:18px;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:center;gap:12px"><span class="tile">{{p.g}}</span><h3 style="font:600 16px/1.2 'Space Grotesk',Inter,sans-serif">{{p.n}}</h3></div>
+<div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;justify-content:space-between"><span class="mu" style="font-size:12px">Expertise</span><span class="mono" style="font-size:12px">{{p.lv}}%</span></div><div class="meter"><i style="width:{{p.lv}}%"></i></div></div>
+<div style="display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{p.sp}}" as="x" hint-placeholder-count="3"><span class="badge">{{x}}</span></sc-for></div>
+</article>
+</sc-for>
+</div>
+</section>
+
+<!-- services -->
+<section id="services" style="padding:64px 16px 0">
+<div style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px"><span class="eyebrow">Services</span><h2 class="h2">What I do for your ad account</h2></div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<sc-for list="{{services}}" as="s" hint-placeholder-count="6">
+<article class="card" style="padding:20px;display:flex;gap:16px;align-items:flex-start">
+<span class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{s.icon}}"></path></svg></span>
+<div style="display:flex;flex-direction:column;gap:6px"><h3 style="font:600 18px/1.25 'Space Grotesk',Inter,sans-serif">{{s.t}}</h3><p class="mu" style="font-size:15px">{{s.o}}</p><a href="#contact" class="acc" style="font-weight:600;font-size:15px;min-height:44px;display:inline-flex;align-items:center">Learn more →</a></div>
+</article>
+</sc-for>
+</div>
+</section>
+
+<!-- cases -->
+<section id="work" style="padding:64px 0 0">
+<div style="padding:0 16px;display:flex;flex-direction:column;gap:12px;margin-bottom:20px"><span class="eyebrow">Featured work</span><h2 class="h2">Case studies, measured in revenue</h2></div>
+<div class="snap" role="group" aria-label="Filter case studies" style="padding:0 16px 12px">
+<sc-for list="{{filters}}" as="f" hint-placeholder-count="6"><button type="button" class="chip" aria-pressed="{{f.on}}" onClick="{{f.pick}}">{{f.name}}</button></sc-for>
+</div>
+<div style="padding:0 16px;display:flex;flex-direction:column;gap:14px">
+<sc-for list="{{cases}}" as="c" hint-placeholder-count="4">
+<article class="card" style="padding:20px;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><span class="badge badge-a">{{c.industry}}</span><div style="display:flex;gap:6px"><sc-for list="{{c.plats}}" as="pl" hint-placeholder-count="2"><span class="badge">{{pl}}</span></sc-for></div></div>
+<h3 class="h3">{{c.client}}</h3>
+<p class="mu" style="font-size:15px"><strong style="color:var(--tx);font-weight:600">Challenge:</strong> {{c.challenge}}</p>
+<p class="mu" style="font-size:15px"><strong style="color:var(--tx);font-weight:600">Result:</strong> {{c.result}}</p>
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:12px">
+<ul style="display:flex;flex-direction:column;gap:10px"><sc-for list="{{c.metrics}}" as="m" hint-placeholder-count="2"><li style="display:flex;flex-direction:column"><span class="mono mu" style="font-size:10px;letter-spacing:.08em">{{m.k}}</span><span class="mono acc" style="font-size:20px;font-weight:700;letter-spacing:-.02em">{{m.v}}</span></li></sc-for></ul>
+<svg viewBox="0 0 170 100" width="128" height="75" role="img" aria-label="Before and after bar chart"><path d="M10 82H160" stroke="var(--ln)"></path><rect class="bar" x="26" y="{{c.by}}" width="40" height="{{c.bh}}" rx="5" fill="var(--s2)" stroke="var(--ln)"></rect><rect class="bar" x="104" y="{{c.ay}}" width="40" height="{{c.ah}}" rx="5" fill="var(--acc)"></rect></svg>
+</div>
+<a href="CaseStudy.dc.html" class="acc" style="font-weight:600;min-height:44px;display:inline-flex;align-items:center">Read the case study →</a>
+</article>
+</sc-for>
+</div>
+</section>
+
+<!-- process -->
+<section id="process" style="padding:64px 16px 0">
+<div style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px"><span class="eyebrow">My process</span><h2 class="h2">Five steps from audit to scale</h2></div>
+<ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:0">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="5">
+<li style="display:flex;gap:16px;padding-bottom:24px;position:relative">
+<div style="display:flex;flex-direction:column;align-items:center;gap:8px"><span class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{s.icon}}"></path></svg></span><span style="flex:1;width:1px;background:var(--ln)"></span></div>
+<div style="display:flex;flex-direction:column;gap:4px"><span class="mono mu" style="font-size:11px">STEP {{s.n}}</span><h3 class="h3">{{s.t}}</h3><p class="mu" style="font-size:15px">{{s.d}}</p></div>
+</li>
+</sc-for>
+</ol>
+</section>
+
+<!-- tools -->
+<section style="padding:48px 16px 0">
+<div style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px"><span class="eyebrow">Tools &amp; tech stack</span><h2 class="h2">The stack behind the numbers</h2></div>
+<ul style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{tools}}" as="t" hint-placeholder-count="11"><li class="card" style="padding:0 14px 0 8px;min-height:48px;display:flex;align-items:center;gap:10px;border-radius:12px;font-size:14px"><span class="tile" style="width:30px;height:30px;font-size:10px">{{t.g}}</span>{{t.n}}</li></sc-for></ul>
+</section>
+
+<!-- testimonials -->
+<section style="padding:64px 16px 0">
+<div style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px"><span class="eyebrow">Testimonials</span><h2 class="h2">Clients on the results</h2></div>
+<figure class="card" style="padding:22px;display:flex;flex-direction:column;gap:20px">
+<blockquote class="disp" style="font-size:20px;line-height:1.35;font-weight:500">{{tq.quote}}</blockquote>
+<div style="background:var(--s2);border:1px solid var(--ln);border-radius:12px;padding:16px;display:flex;justify-content:space-between;align-items:center"><span class="mono mu" style="font-size:11px;letter-spacing:.08em">{{tq.mk}}</span><span class="mono acc" style="font-size:28px;font-weight:700">{{tq.mv}}</span></div>
+<figcaption style="display:flex;align-items:center;gap:12px"><span class="tile" style="width:44px;height:44px;border-radius:50%;font-size:12px">{{tq.ini}}</span><span style="display:flex;flex-direction:column"><strong style="font-weight:600">{{tq.name}}</strong><span class="mu" style="font-size:13px">{{tq.role}}</span></span></figcaption>
+</figure>
+<div style="display:flex;justify-content:center;margin-top:4px">
+<sc-for list="{{dots}}" as="d" hint-placeholder-count="3"><button type="button" aria-label="{{d.label}}" aria-current="{{d.on}}" onClick="{{d.pick}}" style="width:44px;height:44px;background:transparent;border:0;cursor:pointer;display:flex;align-items:center;justify-content:center"><span style="width:{{d.w}}px;height:8px;border-radius:99px;background:{{d.bg}}"></span></button></sc-for>
+</div>
+</section>
+
+<!-- certs -->
+<section style="padding:40px 16px 0">
+<span class="eyebrow">Certifications</span>
+<div style="display:flex;flex-direction:column;gap:10px;margin-top:20px">
+<sc-for list="{{certs}}" as="c" hint-placeholder-count="5"><div class="card" style="padding:14px 16px;display:flex;align-items:center;gap:12px;border-radius:14px"><span class="ico" style="width:36px;height:36px;border-radius:10px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15a7 7 0 100-14 7 7 0 000 14zM8.200 13.900L7 23l5-3 5 3-1.200-9.100"></path></svg></span><span style="font-weight:600;font-size:14px">{{c}}</span></div></sc-for>
+</div>
+</section>
+
+<!-- about -->
+<section id="about" style="padding:64px 16px 0;display:flex;flex-direction:column;gap:20px">
+<span class="eyebrow">About me</span>
+<div style="display:flex;gap:16px;align-items:center">
+<div style="width:96px;height:120px;border-radius:16px;border:1px solid var(--ln);background:linear-gradient(160deg,var(--s2),var(--bg));overflow:hidden;flex:none"><svg viewBox="0 0 96 120" width="100%" height="100%" role="img" aria-label="Portrait placeholder"><circle cx="48" cy="48" r="19" fill="var(--ln)"></circle><path d="M14 120c0-26 15-40 34-40s34 14 34 40z" fill="var(--ln)"></path></svg></div>
+<h2 class="h2" style="font-size:26px">Fifteen years of making marketing answer for its numbers.</h2>
+</div>
+<p class="lead" style="font-size:16px">I started in telecom and mobility marketing, where every campaign had to justify its budget, then spent years running growth for real estate, automotive and retail brands. Today I build and scale paid media for brands that want growth they can forecast.</p>
+<blockquote class="disp" style="font-size:22px;font-weight:600;line-height:1.25;padding:18px;border:1px solid var(--ln);border-radius:16px;background:var(--s1)">“Every rupee should be <span class="acc">accountable.</span>”</blockquote>
+<a class="btn btn-s" href="#">Download Resume</a>
+</section>
+
+<!-- contact -->
+<section id="contact" style="padding:64px 16px 0;display:flex;flex-direction:column;gap:24px">
+<span class="eyebrow">Free audit</span>
+<h2 class="h2">Let’s scale your ads profitably</h2>
+<ul style="display:flex;flex-direction:column;gap:12px"><sc-for list="{{auditPoints}}" as="a" hint-placeholder-count="4"><li style="display:flex;gap:12px;align-items:flex-start;font-size:15px"><span class="ico" style="width:26px;height:26px;border-radius:8px;margin-top:1px"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg></span><span>{{a}}</span></li></sc-for></ul>
+<form class="card" style="background:var(--s1);padding:20px;display:flex;flex-direction:column;gap:16px;border-radius:20px" onSubmit="{{noop}}">
+<div class="field"><label for="m-name">Name</label><input class="in" id="m-name" type="text" placeholder="Your name" autocomplete="name"></div>
+<div class="field"><label for="m-email">Email</label><input class="in" id="m-email" type="email" placeholder="you@company.com" autocomplete="email"></div>
+<div class="field"><label for="m-site">Company / website</label><input class="in" id="m-site" type="text" placeholder="company.com"></div>
+<div class="field"><label for="m-budget">Monthly ad budget</label><select class="in" id="m-budget"><option>Under ₹1L / $1K</option><option>₹1L – ₹5L / $1K – $5K</option><option>₹5L – ₹20L / $5K – $20K</option><option>₹20L – ₹50L / $20K – $50K</option><option>₹50L+ / $50K+</option></select></div>
+<div class="field"><span class="lbl" id="m-plat">Platforms of interest</span><div role="group" aria-labelledby="m-plat" style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{formChips}}" as="c" hint-placeholder-count="6"><button type="button" class="chip" aria-pressed="{{c.on}}" onClick="{{c.pick}}">{{c.name}}</button></sc-for></div></div>
+<div class="field"><label for="m-msg">Message</label><textarea class="in" id="m-msg" placeholder="Tell me about your product, goals and current results."></textarea></div>
+<button type="button" class="btn btn-p" style="width:100%;min-height:54px">Get My Free Audit</button>
+</form>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+<a class="btn btn-s" style="padding:0 8px" href="#">WhatsApp</a><a class="btn btn-s" style="padding:0 8px" href="#">Email</a><a class="btn btn-s" style="padding:0 8px" href="#">LinkedIn</a>
+</div>
+<a class="btn btn-s" href="#">Book a 30-min call</a>
+</section>
+
+<!-- footer -->
+<footer style="margin-top:64px;background:var(--s1);border-top:1px solid var(--ln);padding:40px 16px 112px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:10px"><span class="disp" style="font-weight:600;font-size:20px">Anuj Kumar</span><p class="mu" style="font-size:15px">Performance marketer and paid media specialist. Predictable revenue from Meta, Google, LinkedIn, TikTok and Bing.</p></div>
+<nav aria-label="Footer" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr))">
+<a class="mu" style="min-height:44px;display:flex;align-items:center" href="#work">Work</a><a class="mu" style="min-height:44px;display:flex;align-items:center" href="#services">Services</a><a class="mu" style="min-height:44px;display:flex;align-items:center" href="#platforms">Platforms</a><a class="mu" style="min-height:44px;display:flex;align-items:center" href="#about">About</a>
+</nav>
+<div style="display:flex;gap:8px">
+<a class="btn btn-s" style="width:44px;min-height:44px;padding:0" href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z"></path></svg></a>
+<a class="btn btn-s" style="width:44px;min-height:44px;padding:0" href="#" aria-label="X"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20"></path></svg></a>
+<a class="btn btn-s" style="width:44px;min-height:44px;padding:0" href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"></rect><path d="M16 11.400a4 4 0 11-7.900 1.200 4 4 0 017.900-1.200zM17.500 6.500h.01"></path></svg></a>
+<a class="btn btn-s" style="width:44px;min-height:44px;padding:0" href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.500 6.400a2.800 2.800 0 00-2-2C18.800 4 12 4 12 4s-6.800 0-8.500.5a2.800 2.800 0 00-2 2C1 8.100 1 12 1 12s0 3.900.5 5.600a2.800 2.800 0 002 2C5.200 20 12 20 12 20s6.800 0 8.500-.5a2.800 2.800 0 002-2c.5-1.700.5-5.600.5-5.600s0-3.900-.5-5.600z"></path><path d="M9.700 15.500l5.800-3.500-5.800-3.500z"></path></svg></a>
+</div>
+<form style="display:flex;flex-direction:column;gap:10px" onSubmit="{{noop}}">
+<label for="m-nl" class="eyebrow" style="color:var(--mu)">Weekly paid ads insights</label>
+<div style="display:flex;gap:8px"><input class="in" id="m-nl" type="email" placeholder="you@company.com" style="flex:1;width:auto;min-width:0"><button type="button" class="btn btn-p" style="padding:0 16px">Subscribe</button></div>
+</form>
+<span class="mu mono" style="font-size:12px">© 2026 Anuj Kumar. All rights reserved.</span>
+</footer>
+
+<!-- sticky bottom CTA -->
+<div style="position:sticky;bottom:0;z-index:40;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--ln);margin-top:-92px">
+<a class="btn btn-p" style="width:100%;min-height:52px" href="#contact">Book a Strategy Call</a>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","default":"dark","options":["dark","light"],"section":"Look"},"accent":{"editor":"enum","default":"lime","options":["lime","blue"],"section":"Look"},"$preview":{"width":390,"height":9800}}'>
+class Component extends DCLogic {
+  state = { filter: 'All', ti: 0, plat: {}, t: 0 };
+
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) { this.setState({ t: 1 }); return; }
+    const s = performance.now();
+    const step = (n) => {
+      const p = Math.min(1, (n - s) / 1600);
+      this.setState({ t: 1 - Math.pow(1 - p, 3) });
+      if (p < 1) this._r = requestAnimationFrame(step);
+    };
+    this._r = requestAnimationFrame(step);
+  }
+  componentWillUnmount() { cancelAnimationFrame(this._r); }
+
+  line(pts, w, h, pad) {
+    const mx = Math.max(...pts), mn = Math.min(...pts);
+    return pts.map((v, i) => {
+      const x = (i / (pts.length - 1)) * w;
+      const y = h - pad - ((v - mn) / (mx - mn || 1)) * (h - pad * 2);
+      return (i ? 'L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1);
+    }).join(' ');
+  }
+
+  renderVals() {
+    const p = this.props, t = this.state.t;
+    const themeClass = (p.theme === 'light' ? 't-light' : 't-dark') + ' ' + (p.accent === 'blue' ? 'a-blue' : 'a-lime');
+    const f = (to, d) => (to * t).toFixed(d);
+    const kpis = [
+      { label: 'ROAS', value: f(4.6, 1) + 'x', delta: '+12.4%', pts: [3, 3.2, 3.1, 3.6, 3.9, 4.1, 4.6] },
+      { label: 'CPA', value: '$' + f(18.4, 2), delta: '−38%', pts: [30, 28, 27, 24, 22, 20, 18] },
+      { label: 'CTR', value: f(3.2, 1) + '%', delta: '+0.8pt', pts: [2.1, 2.2, 2.5, 2.4, 2.8, 3.0, 3.2] },
+      { label: 'REVENUE', value: '$' + f(182, 0) + 'K', delta: '+310%', pts: [20, 30, 44, 70, 96, 140, 182] },
+    ].map((k) => ({ ...k, spark: this.line(k.pts, 120, 28, 3) }));
+
+    const rev = [20, 26, 24, 38, 44, 58, 66, 84, 96, 118, 140, 176];
+    const spd = [30, 32, 34, 36, 40, 42, 44, 46, 50, 52, 56, 58];
+    const all = rev.concat(spd), mx = Math.max(...all), mn = Math.min(...all);
+    const pathFor = (arr) => arr.map((v, i) => {
+      const x = (i / (arr.length - 1)) * 520;
+      const y = 180 - ((v - mn) / (mx - mn)) * 150;
+      return (i ? 'L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1);
+    }).join(' ');
+    const heroLine = pathFor(rev);
+
+    const platforms = [
+      { g: 'Me', n: 'Meta Ads', lv: 95, sp: ['Advantage+', 'Catalog', 'Lead Gen'] },
+      { g: 'G', n: 'Google Ads', lv: 95, sp: ['Search', 'PMax', 'Shopping', 'YouTube'] },
+      { g: 'in', n: 'LinkedIn Ads', lv: 85, sp: ['ABM', 'Lead Gen Forms'] },
+      { g: 'Tk', n: 'TikTok Ads', lv: 80, sp: ['Spark Ads', 'UGC creatives'] },
+      { g: 'Bg', n: 'Microsoft (Bing)', lv: 75, sp: ['Search', 'Google import'] },
+      { g: 'YT', n: 'YouTube', lv: 80, sp: ['Demand Gen', 'Shorts'] },
+      { g: 'Sc', n: 'Snapchat', lv: 60, sp: ['Story Ads', 'Lead forms'] },
+      { g: 'Pi', n: 'Pinterest', lv: 60, sp: ['Shopping', 'Catalog'] },
+      { g: 'Az', n: 'Amazon Ads', lv: 70, sp: ['Sponsored Products', 'Sponsored Brands'] },
+      { g: 'Pg', n: 'Programmatic', lv: 65, sp: ['DV360', 'Retargeting'] },
+    ];
+    const mq = platforms.map((x) => ({ g: x.g, n: x.n }));
+
+    const services = [
+      { t: 'Paid Social Strategy & Management', o: 'Meta, TikTok and Pinterest funnels built to lower CPA as spend grows.', icon: 'M18 8a3 3 0 100-6 3 3 0 000 6zM6 15a3 3 0 100-6 3 3 0 000 6zM18 22a3 3 0 100-6 3 3 0 000 6zM8.6 13.5l6.8 4M15.4 6.5l-6.8 4' },
+      { t: 'Search & Shopping Campaigns', o: 'Capture high-intent demand on Google and Bing without paying for junk clicks.', icon: 'M11 19a8 8 0 100-16 8 8 0 000 16zM21 21l-4.3-4.3' },
+      { t: 'B2B Lead Generation (LinkedIn & Google)', o: 'Qualified pipeline from the accounts you actually want.', icon: 'M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.900M16 3.100a4 4 0 010 7.800' },
+      { t: 'Creative Strategy & Ad Testing', o: 'A weekly testing system that finds winning hooks and retires tired ads.', icon: 'M12 2l10 5-10 5L2 7l10-5zM2 17l10 5 10-5M2 12l10 5 10-5' },
+      { t: 'Tracking, Pixel/CAPI & GA4 Setup', o: 'Clean, server-side data so platforms optimise on real conversions.', icon: 'M16 18l6-6-6-6M8 6l-6 6 6 6' },
+      { t: 'Account Audits & Scaling Roadmaps', o: 'A prioritised plan showing where spend leaks and where to scale next.', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 012-2h2a2 2 0 012 2 2 2 0 01-2 2h-2a2 2 0 01-2-2zM9 14l2 2 4-4' },
+    ];
+
+    const filterNames = ['All', 'E-commerce', 'B2B', 'SaaS', 'Lead Gen', 'D2C'];
+    const filters = filterNames.map((n) => ({ name: n, on: this.state.filter === n, pick: () => this.setState({ filter: n }) }));
+    const rawCases = [
+      { tags: ['E-commerce', 'D2C'], industry: 'E-commerce · D2C', plats: ['Meta', 'Google'], client: '[Client name]', challenge: 'Spend was rising but ROAS stalled at 1.8x.', result: 'Rebuilt around catalog and creative testing, reaching 4.6x.', metrics: [{ k: 'ROAS', v: '1.8x → 4.6x' }, { k: 'REVENUE', v: '+310% in 90 days' }], b: 28, a: 92 },
+      { tags: ['B2B', 'SaaS', 'Lead Gen'], industry: 'B2B · SaaS', plats: ['LinkedIn', 'Google'], client: '[Client name]', challenge: 'Expensive leads that sales did not want.', result: 'Account-based targeting and lead-form tuning cut cost per lead in half.', metrics: [{ k: 'CPL', v: '−52%' }, { k: 'SQL RATE', v: '+[X]%' }], b: 90, a: 43 },
+      { tags: ['Lead Gen'], industry: 'Lead Gen · Real estate', plats: ['Meta', 'Google'], client: '[Client name]', challenge: 'High lead volume, low site-visit conversion.', result: 'Tighter audiences and qualification steps improved lead quality.', metrics: [{ k: 'CPL', v: '−[X]%' }, { k: 'SITE VISITS', v: '+[X]%' }], b: 40, a: 80 },
+      { tags: ['D2C', 'E-commerce'], industry: 'D2C · Consumer', plats: ['TikTok', 'Meta'], client: '[Client name]', challenge: 'Creative fatigue was driving CPA up every week.', result: 'Spark Ads and UGC testing built a repeatable creative pipeline.', metrics: [{ k: 'CPA', v: '−[X]%' }, { k: 'ROAS', v: '[X]x' }], b: 85, a: 50 },
+    ];
+    const cases = rawCases.filter((c) => this.state.filter === 'All' || c.tags.indexOf(this.state.filter) > -1).map((c) => ({ ...c, by: 82 - c.b * 0.7, bh: c.b * 0.7, ay: 82 - c.a * 0.7, ah: c.a * 0.7 }));
+
+    const steps = [
+      { n: '01', t: 'Audit', d: 'Tracking, structure, audiences and spend leaks reviewed before anything changes.', icon: 'M11 19a8 8 0 100-16 8 8 0 000 16zM21 21l-4.3-4.3' },
+      { n: '02', t: 'Strategy', d: 'Funnel, budget split and targets set against your margins.', icon: 'M12 22a10 10 0 100-20 10 10 0 000 20zM12 18a6 6 0 100-12 6 6 0 000 12zM12 14a2 2 0 100-4 2 2 0 000 4z' },
+      { n: '03', t: 'Launch', d: 'Campaigns, creative and tracking go live together, cleanly.', icon: 'M4.500 16.500c-1.500 1.300-2 5-2 5s3.700-.5 5-2c.7-.8.7-2.100-.1-2.900a2.200 2.200 0 00-2.900-.1zM12 15l-3-3a22 22 0 012-4A12.900 12.900 0 0122 2c0 2.700-.8 7.500-6 11a22 22 0 01-4 2zM9 12H4s.6-3 2-4c1.600-1.100 5 0 5 0M12 15v5s3-.6 4-2c1.100-1.600 0-5 0-5' },
+      { n: '04', t: 'Optimize', d: 'Weekly testing and budget shifts toward what returns.', icon: 'M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6' },
+      { n: '05', t: 'Scale', d: 'Spend rises in steps while CPA and ROAS stay inside target.', icon: 'M23 6l-9.500 9.500-5-5L1 18M17 6h6v6' },
+    ];
+
+    const tools = ['GA4', 'GTM', 'Looker Studio', 'Meta Business Suite', 'Google Merchant Center', 'HubSpot', 'Shopify', 'Triple Whale', 'Supermetrics', 'Hotjar', 'Canva / Figma'].map((n) => ({ n, g: n.replace(/[^A-Za-z0-9 ]/g, '').split(' ').map((w) => w[0]).join('').slice(0, 2) }));
+
+    const tests = [
+      { quote: '“[Client testimonial: one or two sentences on the result you delivered.]”', name: '[Client name]', role: '[Role], [Company]', ini: '[C]', mk: 'ROAS', mv: '[X]x' },
+      { quote: '“[Second testimonial: communication, reporting and trust.]”', name: '[Client name]', role: '[Role], [Company]', ini: '[C]', mk: 'CPL', mv: '−[X]%' },
+      { quote: '“[Third testimonial: scale, budget growth and profitability.]”', name: '[Client name]', role: '[Role], [Company]', ini: '[C]', mk: 'REVENUE', mv: '+[X]%' },
+    ];
+    const ti = this.state.ti;
+    const dots = tests.map((x, i) => ({ label: 'Show testimonial ' + (i + 1), on: i === ti, pick: () => this.setState({ ti: i }), w: i === ti ? 28 : 8, bg: i === ti ? 'var(--acc)' : 'var(--ln)' }));
+    const formChips = ['Meta', 'Google', 'LinkedIn', 'TikTok', 'Bing', 'Other'].map((n) => ({ name: n, on: !!this.state.plat[n], pick: () => this.setState({ plat: { ...this.state.plat, [n]: !this.state.plat[n] } }) }));
+
+    return {
+      themeClass, kpis, platforms, services, filters, cases, steps, tools, dots, formChips,
+      heroLine, heroArea: heroLine + ' L520 190 L0 190 Z', heroSpend: pathFor(spd),
+      marquee: mq.concat(mq),
+      clients: ['[Client logo]', '[Client logo]', '[Client logo]', '[Client logo]', '[Client logo]', '[Client logo]'],
+      stats: [
+        { v: '[₹/$X]M+', l: 'Ad spend managed' },
+        { v: '[X]x', l: 'Average ROAS' },
+        { v: '[X]%', l: 'Avg. CPA reduction' },
+        { v: '[X]+', l: 'Campaigns launched' },
+      ],
+      certs: ['Google Ads Certified', 'Meta Certified Media Buying Professional', 'LinkedIn Marketing Labs', 'TikTok Academy', 'Microsoft Advertising Certified'],
+      auditPoints: ['Tracking health check: pixel, Conversions API and GA4', 'Wasted-spend and budget allocation review', 'Creative and audience gap analysis', 'A 90-day scaling roadmap with target ROAS and CPL'],
+      tq: tests[ti],
+      noop: (e) => { if (e && e.preventDefault) e.preventDefault(); },
+    };
+  }
+}
+</script>
+</body>
+</html>

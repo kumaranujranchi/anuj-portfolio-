@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Portfolio Design System</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./pf.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div class="pf t-dark a-lime" style="width:1440px;height:3300px;padding:72px 80px;display:flex;flex-direction:column;gap:72px">
+
+<header style="display:flex;justify-content:space-between;align-items:flex-end;gap:32px">
+<div style="display:flex;flex-direction:column;gap:14px"><span class="eyebrow">Mini design system</span><h1 class="h1" style="font-size:64px">Signal. A dashboard-grade personal brand.</h1></div>
+<p class="mu" style="max-width:360px;font-size:15px">Dark first, one electric-lime accent used only for CTAs, key numbers and chart highlights. Light mode flips surfaces and darkens accent text for contrast.</p>
+</header>
+
+<!-- colors -->
+<section style="display:flex;flex-direction:column;gap:24px">
+<h2 class="h3">Color tokens</h2>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px">
+<div class="card" style="padding:24px;display:flex;flex-direction:column;gap:16px;transform:none"><span class="eyebrow">Dark (default)</span>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px"><sc-for list="{{dark}}" as="c" hint-placeholder-count="8"><div style="display:flex;flex-direction:column;gap:8px"><div style="height:64px;border-radius:12px;border:1px solid var(--ln);background:{{c.hex}}"></div><div><div style="font-weight:600;font-size:13px">{{c.n}}</div><div class="mono mu" style="font-size:11px">{{c.hex}}</div></div></div></sc-for></div></div>
+<div class="pf t-light a-lime" style="border-radius:20px;border:1px solid var(--ln);padding:24px;display:flex;flex-direction:column;gap:16px"><span class="eyebrow">Light variant</span>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px"><sc-for list="{{light}}" as="c" hint-placeholder-count="8"><div style="display:flex;flex-direction:column;gap:8px"><div style="height:64px;border-radius:12px;border:1px solid var(--ln);background:{{c.hex}}"></div><div><div style="font-weight:600;font-size:13px">{{c.n}}</div><div class="mono mu" style="font-size:11px">{{c.hex}}</div></div></div></sc-for></div></div>
+</div>
+<p class="mu" style="font-size:14px">Alternate accent: signal blue <span class="mono" style="color:#60A5FA">#3B82F6</span>, set with the Accent tweak. Body text on every surface meets 4.5:1 or better.</p>
+</section>
+
+<!-- type -->
+<section style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:48px">
+<div style="display:flex;flex-direction:column;gap:24px"><h2 class="h3">Type scale</h2>
+<div style="display:flex;flex-direction:column;gap:0;border-top:1px solid var(--ln)">
+<sc-for list="{{type}}" as="t" hint-placeholder-count="6"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:14px 0;border-bottom:1px solid var(--ln)"><span style="font-family:{{t.fam}};font-weight:{{t.w}};font-size:{{t.size}}px;line-height:1.1;letter-spacing:{{t.ls}}">{{t.sample}}</span><span class="mono mu" style="font-size:11px;white-space:nowrap">{{t.spec}}</span></div></sc-for></div></div>
+<div style="display:flex;flex-direction:column;gap:24px"><h2 class="h3">Fonts</h2>
+<div class="card" style="padding:24px;display:flex;flex-direction:column;gap:20px;transform:none">
+<div><span class="mono mu" style="font-size:11px">DISPLAY · SPACE GROTESK</span><div class="disp" style="font-size:34px;font-weight:700;margin-top:4px">Aa Predictable revenue</div></div>
+<div><span class="mono mu" style="font-size:11px">BODY · INTER</span><div style="font-size:18px;margin-top:4px">Every rupee should be accountable.</div></div>
+<div><span class="mono mu" style="font-size:11px">METRICS · JETBRAINS MONO, TABULAR</span><div class="mono acc" style="font-size:34px;font-weight:700;margin-top:4px">0123456789 4.6x</div></div>
+</div></div>
+</section>
+
+<!-- buttons + badges -->
+<section style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px">
+<div style="display:flex;flex-direction:column;gap:24px"><h2 class="h3">Buttons</h2>
+<div class="card" style="padding:28px;display:flex;flex-direction:column;gap:20px;transform:none">
+<div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><a class="btn btn-p" href="#">Primary</a><a class="btn btn-s" href="#">Secondary</a><a class="btn btn-g" href="#">Ghost</a></div>
+<div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><span class="btn btn-p" style="box-shadow:0 12px 32px -8px var(--glow);transform:translateY(-2px)">Hover</span><span class="btn btn-p" style="outline:2px solid var(--acct);outline-offset:3px">Focus</span><span class="btn" style="background:var(--s2);color:var(--mu)">Disabled</span></div>
+<p class="mu" style="font-size:13px">48px height, 12px radius, 24px side padding. Primary appears once per view.</p>
+</div></div>
+<div style="display:flex;flex-direction:column;gap:24px"><h2 class="h3">Badges and chips</h2>
+<div class="card" style="padding:28px;display:flex;flex-direction:column;gap:20px;transform:none">
+<div style="display:flex;gap:8px;flex-wrap:wrap"><span class="badge">Meta</span><span class="badge">LinkedIn</span><span class="badge badge-a">E-commerce · D2C</span><span class="badge badge-a">Sample data</span></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="chip" aria-pressed="true">All</button><button type="button" class="chip" aria-pressed="false">B2B</button><button type="button" class="chip" aria-pressed="false">SaaS</button></div>
+<p class="mu" style="font-size:13px">Badges are 12px mono labels. Chips are 44px tall toggle buttons.</p>
+</div></div>
+</section>
+
+<!-- cards + inputs -->
+<section style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px">
+<div style="display:flex;flex-direction:column;gap:16px"><h2 class="h3">Card</h2>
+<article class="card" style="padding:24px;display:flex;flex-direction:column;gap:12px"><span class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 6l-9.500 9.500-5-5L1 18M17 6h6v6"></path></svg></span><h3 class="h3" style="font-size:18px">Standard card</h3><p class="mu" style="font-size:14px">20px radius, 1px line border. Hover lifts 4px and tints the border with the accent.</p></article></div>
+<div style="display:flex;flex-direction:column;gap:16px"><h2 class="h3">Glow KPI card</h2>
+<div class="glass" style="padding:24px;display:flex;flex-direction:column;gap:6px;box-shadow:inset 0 0 60px -30px var(--glow)"><div style="display:flex;justify-content:space-between"><span class="mono mu" style="font-size:12px">ROAS</span><span class="mono acc" style="font-size:12px">+12.4%</span></div><span class="mono" style="font-size:36px;font-weight:700;letter-spacing:-.02em">4.6x</span>
+<svg viewBox="0 0 120 28" width="100%" height="28" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24L20 22L40 23L60 17L80 13L100 9L120 3" fill="none" stroke="var(--acc)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"></path></svg></div></div>
+<div style="display:flex;flex-direction:column;gap:16px"><h2 class="h3">Form inputs</h2>
+<div class="card" style="padding:24px;display:flex;flex-direction:column;gap:14px;transform:none"><div class="field"><label for="ds-a">Email</label><input class="in" id="ds-a" type="email" placeholder="you@company.com"></div><div class="field"><label for="ds-b">Monthly ad budget</label><select class="in" id="ds-b"><option>₹1L – ₹5L</option><option>₹5L – ₹20L</option></select></div></div></div>
+</section>
+
+<!-- charts + icons -->
+<section style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:48px">
+<div style="display:flex;flex-direction:column;gap:24px"><h2 class="h3">Chart styles</h2>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px">
+<div class="card" style="padding:16px;transform:none;display:flex;flex-direction:column;gap:8px"><span class="mono mu" style="font-size:11px">LINE + AREA</span><svg viewBox="0 0 200 110" width="100%" role="img" aria-label="Line chart sample"><g stroke="var(--ln)"><path d="M0 20H200M0 55H200M0 90H200"></path></g><path d="M0 90L30 82L60 84L90 62L120 52L150 30L200 12L200 110L0 110Z" fill="var(--acc)" opacity=".13"></path><path d="M0 90L30 82L60 84L90 62L120 52L150 30L200 12" fill="none" stroke="var(--acc)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path><path d="M0 70L50 68L100 60L150 54L200 48" fill="none" stroke="var(--mu)" stroke-width="2" stroke-dasharray="4 5"></path></svg></div>
+<div class="card" style="padding:16px;transform:none;display:flex;flex-direction:column;gap:8px"><span class="mono mu" style="font-size:11px">BEFORE / AFTER BARS</span><svg viewBox="0 0 200 110" width="100%" role="img" aria-label="Bar chart sample"><path d="M10 90H190" stroke="var(--ln)"></path><rect x="42" y="56" width="44" height="34" rx="6" fill="var(--s2)" stroke="var(--ln)"></rect><rect x="114" y="14" width="44" height="76" rx="6" fill="var(--acc)"></rect></svg></div>
+<div class="card" style="padding:16px;transform:none;display:flex;flex-direction:column;gap:8px"><span class="mono mu" style="font-size:11px">SPARKLINE</span><div style="flex:1;display:flex;align-items:center"><svg viewBox="0 0 120 40" width="100%" role="img" aria-label="Sparkline sample"><path d="M0 34L20 30L40 32L60 22L80 16L100 10L120 4" fill="none" stroke="var(--acc)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div>
+</div>
+<p class="mu" style="font-size:13px">Accent for the hero series only. Comparison series are dashed muted lines. Gridlines use the line token. Lines draw in on scroll; bars grow from the baseline; both stop under reduced-motion.</p></div>
+<div style="display:flex;flex-direction:column;gap:24px"><h2 class="h3">Icon style</h2>
+<div class="card" style="padding:24px;transform:none;display:flex;flex-direction:column;gap:16px"><div style="display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px"><sc-for list="{{icons}}" as="i" hint-placeholder-count="12"><span class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{i}}"></path></svg></span></sc-for></div>
+<p class="mu" style="font-size:13px">24px grid, 1.75px stroke, round caps and joins. Sits in a 44px tile tinted with 12% accent.</p></div></div>
+</section>
+
+<!-- spacing -->
+<section style="display:flex;flex-direction:column;gap:20px"><h2 class="h3">Spacing and layout</h2>
+<div style="display:flex;gap:32px;align-items:flex-end;flex-wrap:wrap">
+<sc-for list="{{space}}" as="s" hint-placeholder-count="8"><div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start"><div style="width:{{s}}px;height:{{s}}px;background:var(--acc);border-radius:3px"></div><span class="mono mu" style="font-size:11px">{{s}}</span></div></sc-for>
+<p class="mu" style="font-size:14px;max-width:420px;margin-left:auto">8px base unit. 12-column grid, 24px gutters, 1200px max content width. Breakpoints at 390, 768, 1280 and 1440.</p>
+</div></section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      dark: [
+        { n: 'Background', hex: '#0B0D12' }, { n: 'Surface', hex: '#11141B' }, { n: 'Surface raised', hex: '#181C26' }, { n: 'Text', hex: '#F2F4F8' },
+        { n: 'Muted text', hex: '#9AA3B2' }, { n: 'Accent', hex: '#C6F432' }, { n: 'Accent ink', hex: '#0B0D12' }, { n: 'Line', hex: '#25282F' },
+      ],
+      light: [
+        { n: 'Background', hex: '#F6F7F9' }, { n: 'Surface', hex: '#FFFFFF' }, { n: 'Surface raised', hex: '#EDEFF3' }, { n: 'Text', hex: '#0B0D12' },
+        { n: 'Muted text', hex: '#4B5565' }, { n: 'Accent', hex: '#C6F432' }, { n: 'Accent text', hex: '#4B6800' }, { n: 'Line', hex: '#D3D5D9' },
+      ],
+      type: [
+        { sample: 'Display 76', fam: "'Space Grotesk'", w: 700, size: 52, ls: '-.035em', spec: 'Space Grotesk 700 · 76/1.02' },
+        { sample: 'Heading 44', fam: "'Space Grotesk'", w: 700, size: 40, ls: '-.03em', spec: 'Space Grotesk 700 · 44/1.08' },
+        { sample: 'Title 22', fam: "'Space Grotesk'", w: 600, size: 24, ls: '-.02em', spec: 'Space Grotesk 600 · 22/1.2' },
+        { sample: 'Lead paragraph 18', fam: 'Inter', w: 400, size: 18, ls: '0', spec: 'Inter 400 · 18/1.6' },
+        { sample: 'Body 16', fam: 'Inter', w: 400, size: 16, ls: '0', spec: 'Inter 400 · 16/1.55' },
+        { sample: 'LABEL 12 · METRIC 4.6x', fam: "'JetBrains Mono'", w: 500, size: 14, ls: '.1em', spec: 'JetBrains Mono 500 · 12 caps' },
+      ],
+      icons: ['M23 6l-9.500 9.500-5-5L1 18M17 6h6v6', 'M11 19a8 8 0 100-16 8 8 0 000 16zM21 21l-4.3-4.3', 'M12 22a10 10 0 100-20 10 10 0 000 20zM12 18a6 6 0 100-12 6 6 0 000 12zM12 14a2 2 0 100-4 2 2 0 000 4z', 'M16 18l6-6-6-6M8 6l-6 6 6 6', 'M12 2l10 5-10 5L2 7l10-5zM2 17l10 5 10-5M2 12l10 5 10-5', 'M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6', 'M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z', 'M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z', 'M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2zM22 6l-10 7L2 6', 'M5 12h14M12 5l7 7-7 7', 'M7 17L17 7M7 7h10v10', 'M20 6L9 17l-5-5'],
+      space: [4, 8, 16, 24, 32, 48, 64, 96],
+    };
+  }
+}
+</script>
+</body>
+</html>
